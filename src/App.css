@@ -18,3 +18,34 @@ body {
 .black {
   color: #000;
 }
+.home--section::-webkit-scrollbar {
+  display: none;
+}
+.snap-img {
+  right: 0;
+}
+
+/* For IE, Edge and Firefox */
+.home--section {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.spotify--section {
+  right: 35px;
+  top: 8vh;
+}
+@media screen and (max-width: 1080px) {
+  .upper-tag {
+    display: none;
+  }
+}
+@media screen and (max-width: 720px) {
+  .snap-img {
+    left: 0;
+  }
+  .spotify--section {
+    left: 10px;
+    top: 5vh;
+  }
+}
