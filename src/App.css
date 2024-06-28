@@ -22,30 +22,191 @@ body {
   display: none;
 }
 .snap-img {
-  right: 0;
+  right: -200px;
 }
-
+.hide--left {
+  opacity: 0 !important;
+  transform: translateX(-100%) !important;
+  transition: 1700ms !important;
+}
+.hide--right {
+  opacity: 0 !important;
+  transform: translateX(100%) !important;
+  transition: 1700ms !important;
+}
+.hide--up {
+  transform: translateY(-200%) !important;
+}
 /* For IE, Edge and Firefox */
 .home--section {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
-
+.gradient--left {
+  background-image: linear-gradient(
+    90deg,
+    #fff,
+    rgba(255, 255, 255, 0) 100%,
+    #fff
+  );
+  position: absolute;
+  top: 30%;
+  bottom: 0;
+  right: auto;
+  left: -10px;
+  width: 100px;
+  height: 100px;
+  z-index: 999;
+}
+.gradient--right {
+  background-image: linear-gradient(
+    270deg,
+    #fff,
+    rgba(255, 255, 255, 0) 100%,
+    #fff
+  );
+  position: absolute;
+  top: 30%;
+  bottom: 0;
+  right: -10px;
+  left: auto;
+  width: 100px;
+  height: 100px;
+  z-index: 999;
+}
 .spotify--section {
   right: 35px;
   top: 8vh;
 }
+
+.img--circle {
+  position: absolute;
+  border-radius: 50%;
+  display: flex;
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+  background-color: #00d96200;
+  border: 3px solid #00d962;
+  animation: beat 3s ease-in-out infinite reverse; /* Animation definition */
+}
+.music--icon {
+  position: absolute;
+}
+.img--circle:nth-child(1) {
+  animation-delay: 0s; /* Start animation immediately */
+}
+.img--circle:nth-child(2) {
+  animation-delay: 0.3s; /* Delay animation by 0.2 seconds */
+}
+
+.img--circle:nth-child(3) {
+  animation-delay: 0.6s; /* Delay animation by 0.4 seconds */
+}
+
+#music--icon--1 {
+  animation-delay: 0s;
+  animation: boot1 3s ease-in-out infinite reverse; /* Animation definition */
+}
+
+#music--icon--2 {
+  animation-delay: 0.3s;
+  animation: boot2 2s ease-in-out infinite reverse; /* Animation definition */
+}
+
+#music--icon--3 {
+  animation-delay: 0.6s;
+  animation: boot3 2.4s ease-in-out infinite reverse; /* Animation definition */
+}
+
+@keyframes beat {
+  /* Animation definition */
+  0% {
+    transform: scale(2); /* Start at full size */
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.2); /* Scale down to 80% at the middle */
+    opacity: 0.5;
+  }
+}
+@keyframes boot1 {
+  /* Animation definition */
+  0% {
+    transform: translate(50px, 40px); /* Start at full size */
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(0px, 0px); /* Start at full size */
+    opacity: 0;
+  }
+}
+@keyframes boot2 {
+  /* Animation definition */
+  0% {
+    transform: translate(-50px, -40px); /* Start at full size */
+    opacity: 0.3;
+  }
+  100% {
+    transform: translate(0px, 0px); /* Start at full size */
+    opacity: 0;
+  }
+}
+@keyframes boot3 {
+  /* Animation definition */
+  0% {
+    transform: translate(-30px, 40px); /* Start at full size */
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(0px, 0px); /* Start at full size */
+    opacity: 0;
+  }
+}
+
+.left-arm {
+  animation: la 1s ease-in infinite alternate; /* Animation definition */
+}
+
+.right-arm {
+  animation: ra 1s ease-in infinite alternate; /* Animation definition */
+}
+
+@keyframes la {
+  /* Animation definition */
+  0% {
+    top: 5px;
+  }
+  100% {
+    top: -5px;
+  }
+}
+
+@keyframes ra {
+  /* Animation definition */
+  0% {
+    top: -5px;
+  }
+  100% {
+    top: 5px;
+  }
+}
+
 @media screen and (max-width: 1080px) {
-  .upper-tag {
-    display: none;
+  .mobile--hide {
+    display: none !important;
   }
 }
 @media screen and (max-width: 720px) {
   .snap-img {
-    left: 0;
+    right: -75px;
   }
   .spotify--section {
     left: 10px;
     top: 5vh;
+  }
+  .img--circle {
+    width: 20px;
+    height: 20px;
   }
 }
