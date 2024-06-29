@@ -7,7 +7,7 @@ const HomeCard = ({ isVisible, constraintsRef }) => {
         drag
         dragConstraints={constraintsRef}
         animate={{ opacity: 1, filter: "blur(0)" }}
-        transition={{ ease: "easeInOut", duration: 2, delay: 2 }}
+        transition={{ ease: "easeInOut", duration: 2, delay: 1 }}
         data-value="know more about me."
         className={`flex opacity-0 blur-[30px] absolute z-[200] cursor-pointer flex-col gap-[12px] md:gap-[3rem] bg-[#f6eaff] p-2 md:p-6 rounded-xl md:rounded-[20px] ring-1 ring-[#bbb] rotate-[-15deg] hover:shadow-xl duration-100 top-[10vh] md:top-[40px] left-0 ${
           !isVisible ? "hide--left" : ""
@@ -62,7 +62,7 @@ const HomeCard = ({ isVisible, constraintsRef }) => {
       </motion.span>
       <motion.span
         animate={{ opacity: 1, filter: "blur(0)" }}
-        transition={{ ease: "easeInOut", duration: 2, delay: 2 }}
+        transition={{ ease: "easeInOut", duration: 2, delay: 1 }}
         drag
         dragConstraints={constraintsRef}
         data-value="linkedin."
@@ -94,7 +94,7 @@ const HomeCard = ({ isVisible, constraintsRef }) => {
       </motion.span>
       <motion.span
         animate={{ opacity: 1, filter: "blur(0)" }}
-        transition={{ ease: "easeInOut", duration: 2, delay: 2 }}
+        transition={{ ease: "easeInOut", duration: 2, delay: 1 }}
         drag
         dragConstraints={constraintsRef}
         data-value="my pic."

@@ -34,7 +34,7 @@ const MouseFollower = () => {
   return (
     <div
       id="mouse-follower"
-      className="pointer-events-none z-[999]"
+      className="pointer-events-none z-[1000]"
       style={followerStyle}>
       <span className="flex rounded-r-xl rounded-b-xl bg-[#e6e6e65b] backdrop-blur-lg border-[1px] border-[#bbb] shadow-lg px-4 py-2 ml-[20px] mt-[10px]">
         {dataValue ? `${dataValue}` : "portfolio. "}

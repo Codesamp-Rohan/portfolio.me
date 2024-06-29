@@ -5,6 +5,7 @@ import MouseFollower from "./components/mouseFollower";
 import TechMarquee from "./components/infiniteScroller";
 import HomeCard from "./components/homeCard";
 import { AnimatePresence, motion } from "framer-motion";
+import ProjectSection from "./components/projectSection";
 
 function App() {
   const constraintsRef = useRef(null);
@@ -214,6 +215,7 @@ function App() {
         </h1>
         <TechMarquee />
       </div>
+      <ProjectSection isVisible={isVisible} constraintsRef={constraintsRef} />
     </>
   );
 }
