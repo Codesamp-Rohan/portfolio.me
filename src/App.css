@@ -6,6 +6,7 @@
 body {
   overflow-x: hidden;
 }
+
 .box--left {
   left: 0;
 }
@@ -22,7 +23,7 @@ body {
   display: none;
 }
 .snap-img {
-  right: -200px;
+  right: -150px;
 }
 .hide--left {
   opacity: 0 !important;
@@ -37,6 +38,7 @@ body {
 .hide--up {
   transform: translateY(-200%) !important;
 }
+/* .mac--hide{} */
 /* For IE, Edge and Firefox */
 .home--section {
   -ms-overflow-style: none; /* IE and Edge */
@@ -79,6 +81,17 @@ body {
   height: 100px;
   z-index: 999;
 }
+/* .gradient--black {
+  background-image: linear-gradient(
+    0deg,
+    #000000,
+    #000000e1 40%,
+    #00000093 60%,
+    #00000041 90%,
+
+    #00000000 100%
+  );
+} */
 .spotify--section {
   right: 35px;
   top: 8vh;
@@ -86,6 +99,7 @@ body {
 .mac--section {
   left: 35px;
   top: 8vh;
+  transform: rotateX("30deg");
 }
 
 .img--circle {
@@ -97,6 +111,17 @@ body {
   height: 30px;
   background-color: #00d96200;
   border: 3px solid #00d962;
+  animation: beat 3s ease-in-out infinite reverse; /* Animation definition */
+}
+.mac--circle {
+  position: absolute;
+  border-radius: 50%;
+  display: flex;
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+  background-color: #00d96200;
+  border: 3px solid #fff;
   animation: beat 3s ease-in-out infinite reverse; /* Animation definition */
 }
 .music--icon {
@@ -212,6 +237,19 @@ body {
     transform: translateX(-178%);
   }
 }
+.project--div {
+  background: linear-gradient(90deg, #1d4350, #a43931);
+}
+.project--img:hover {
+  scale: 1.1;
+  transition: 200ms;
+  z-index: 999;
+}
+
+/* .project--div:hover .project--img {
+  scale: 1.1;
+  transition: 700ms;
+} */
 
 @media screen and (max-width: 1080px) {
   .mobile--hide {
@@ -220,7 +258,7 @@ body {
 }
 @media screen and (max-width: 720px) {
   .snap-img {
-    right: -75px;
+    right: -40px;
   }
   .spotify--section {
     left: 10px;
@@ -232,6 +270,10 @@ body {
   }
   .animate-scroll {
     animation: scroll 12s linear infinite;
+  }
+  .mac--section {
+    left: 0;
+    top: 12vh;
   }
   @keyframes scroll {
     0% {

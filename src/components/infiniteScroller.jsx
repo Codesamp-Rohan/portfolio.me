@@ -68,7 +68,7 @@ function TechMarquee() {
         {!buttonToggle && (
           <div className="h-[30vh] flex items-center w-[100%] relative overflow-hidden">
             <div className="gradient--left"></div>
-            <div className="flex gap-[0.6rem] relative animate-scroll w-[40vw]">
+            <div className="flex gap-[0.6rem] relative animate-scroll w-[80vw] md:w-[40vw]">
               {frontendskills.concat(frontendskills).map((skill, index) => {
                 // Duplicated skills array
                 return (

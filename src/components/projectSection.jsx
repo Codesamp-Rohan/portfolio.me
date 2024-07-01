@@ -1,88 +1,92 @@
-import { motion } from "framer-motion";
-import { useRef, useState } from "react";
+import { motion, useTransform, useScroll } from "framer-motion";
+import { useRef } from "react";
 
-const ProjectSection = ({ constraintsRef, isVisible }) => {
-  const [isPlaying, setIsPlaying] = useState(true);
-  const audioRef = useRef(null);
+const ProjectSection = () => {
+  return (
+    <div className="bg-[#000] mt-[20vh] md:mt-[40vh]">
+      <HorizontalScrollCarousel />
+    </div>
+  );
+};
 
-  const handleClick = () => {
-    setIsPlaying(!isPlaying);
-    if (isPlaying) {
-      audioRef.current.play();
-    } else {
-      audioRef.current.pause();
-    }
-  };
+const HorizontalScrollCarousel = () => {
+  const targetRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+  });
+
+  const x = useTransform(scrollYProgress, [0, 1], ["1%", "-95%"]);
 
   return (
-    <div className="w-full flex flex-col items-center mb-[100px] relative">
-      {/* APPLE */}
-      <motion.div
-        animate={{ opacity: 1, filter: "blur(0)" }}
-        transition={{ ease: "easeInOut", duration: 2, delay: 2 }}
-        drag
-        dragConstraints={constraintsRef}
-        className={`mac--section opacity-0 blur-[30px] cursor-pointer z-[900] absolute flex flex-row md:flex-col items-center w-fit bg-[#000000] rotate-[9deg] duration-100 rounded-full md:rounded-xl gap-[1rem] md:gap-[4rem] p-2 md:p-4 ${
-          !isVisible ? "hide--up" : ""
-        }`}>
-        <h1 className="absolute text-black top-[-40px] whitespace-nowrap">
-          Why not listen to this master piece?
-        </h1>
-        <span className="flex items-center gap-[10px]">
-          <span className="relative flex items-center justify-center">
-            <img
-              className={`spotify--icon relative z-[100] bg-black rounded-full w-[40px] p-1`}
-              src="./mac.png"></img>
-            <img
-              id="music--icon--1"
-              className={`music--icon  w-[20px] ${
-                isPlaying ? "hidden" : "flex"
-              }`} // Use 'hidden' class for better accessibility
-              src="./music.png"
-            />
-            <img
-              id="music--icon--2"
-              className={`music--icon w-[20px] ${
-                isPlaying ? "hidden" : "flex"
-              }`}
-              src="./music.png"
-            />
-            <img
-              id="music--icon--3"
-              className={`music--icon w-[20px] ${
-                isPlaying ? "hidden" : "flex"
-              }`}
-              src="./music.png"
-            />
-            <span
-              className={`img--circle ${isPlaying ? "hidden" : "flex"}`}></span>
-            <span
-              className={`img--circle ${isPlaying ? "hidden" : "flex"}`}></span>
-            <span
-              className={`img--circle ${isPlaying ? "hidden" : "flex"}`}></span>
-          </span>
-          <span>
-            <h2 className="font-bold text-white text-[12px] md:text-[16px]">
-              Something Special
-            </h2>
-            <p className="text-[8px] md:text-[12px] text-[#ddd]">
-              by Aditya & Anshuman
-            </p>
-          </span>
-        </span>
-        <button
-          className="bg-[#fff] text-black w-fit md:w-full text-[14px] md:text-[18px] font-bold rounded-full md:rounded-md py-1 px-4 outline-none"
-          onClick={handleClick}>
-          {isPlaying ? "Play" : "Pause"}
-        </button>
-        <audio ref={audioRef} src="./pehle-bhi-main.mp3" preload="auto" />
-      </motion.div>
-      {/* APPLE */}
-      <h1 className="font-bold text-[#777] my-[1rem] md:my-[2rem] w-fit">
-        Projects
-      </h1>
+    <section ref={targetRef} className="relative h-[300vh] bg-[#000]">
+      <div className="sticky top-0 flex h-screen items-center overflow-hidden">
+        <motion.div style={{ x }} className="flex gap-[15rem]">
+          {cards.map((card) => {
+            return <Card card={card} key={card.id} />;
+          })}
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+const Card = ({ card }) => {
+  return (
+    <div
+      key={card.id}
+      className="group relative h-[80vh] w-[95vw] md:w-[80vw] overflow-hidden bg-neutral-200 rounded-[30px]">
+      <div
+        style={{
+          backgroundImage: `url(${card.url})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+        className="absolute inset-0 z-0 transition-transform duration-300 hover:scale-[1.03]"></div>
+      <div className="absolute z-10 bottom-4 right-4">
+        <p className="bg-[#000] rounded-[20px] p-4 text-[2rem] font-black uppercase text-white backdrop-blur-lg">
+          {card.title}
+        </p>
+      </div>
     </div>
   );
 };
 
 export default ProjectSection;
+
+const cards = [
+  {
+    url: "./Projects/holesail-03.png",
+    title: "Holesail",
+    id: 1,
+  },
+  {
+    url: "/imgs/abstract/2.jpg",
+    title: "Title 2",
+    id: 2,
+  },
+  {
+    url: "/imgs/abstract/3.jpg",
+    title: "Title 3",
+    id: 3,
+  },
+  {
+    url: "/imgs/abstract/4.jpg",
+    title: "Title 4",
+    id: 4,
+  },
+  {
+    url: "/imgs/abstract/5.jpg",
+    title: "Title 5",
+    id: 5,
+  },
+  {
+    url: "/imgs/abstract/6.jpg",
+    title: "Title 6",
+    id: 6,
+  },
+  {
+    url: "/imgs/abstract/7.jpg",
+    title: "Title 7",
+    id: 7,
+  },
+];
