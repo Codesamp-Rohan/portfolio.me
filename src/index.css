@@ -23,6 +23,74 @@
 .goBold {
   font-family: Gobold;
 }
+
+/* MemeGenerator */
+.form-button {
+  grid-column: 1 / -1;
+  max-width: 91%;
+  font-family: "Karla", sans-serif;
+  background: linear-gradient(90deg, #7f00ff 10%, #e100ff 100%);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.form-button:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.form-button:active {
+  background: linear-gradient(90deg, #7f00ff 50%, #e100ff 100%);
+  border: 1px solid black;
+}
+
+.meme {
+  margin-top: 20px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  /* max-width: 20%; */
+}
+
+.meme--image {
+  border-radius: 3px;
+  max-height: 50vh;
+  /* max-width: 40%; */
+  box-shadow: 1px 1px 2px 1px grey;
+}
+
+.meme--text {
+  position: absolute;
+  max-width: 80%;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 15px 0;
+  padding: 0 5px;
+  font-family: impact, sans-serif;
+  font-size: 2em;
+  text-transform: uppercase;
+  color: white;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000,
+    -2px 2px 0 #000, 0 2px 0 #000, 2px 0 0 #000, 0 -2px 0 #000, -2px 0 0 #000,
+    2px 2px 5px #000;
+}
+
+.bottom {
+  bottom: 0;
+}
+
+.top {
+  top: 0;
+}
+
+@media screen and (max-width: 700px) {
+  .meme--image {
+    max-width: 90%;
+  }
+}
+
 @media screen and (max-width: 750px) {
   .goBold {
     /* font-weight: 700;

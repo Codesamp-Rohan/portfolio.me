@@ -11,20 +11,11 @@ import MediaPlayer from "./components/mediaPlayer";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
-import EarthModel from "./components/EarthModel";
-import { useScroll } from "@react-three/drei";
-import RollModel from "./components/RollModel";
+import MemeGenerator from "./components/memeGenerator";
 
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
-  const earthRef = useRef(null);
-
-  const earthScrollYProgress = useScroll({
-    target: earthRef,
-    offset: ["0 1", "1.33 1"],
-  });
-
   const constraintsRef = useRef(null);
   const [isVisible, setIsVisible] = useState(true);
   const [isSecondVisible, setIsSecondVisible] = useState(true);
@@ -281,20 +272,8 @@ function App() {
           />
         </div>
         <ProjectSection isMobile={isMobile} />
+        <MemeGenerator />
       </div>
-      {/* <motion.div
-        ref={earthRef}
-        style={{
-          scale: earthScrollYProgress,
-          opacity: earthScrollYProgress,
-        }}
-        className="w-full h-[100vh] bg-[#000]">
-        <EarthModel />
-      </motion.div>
-      <div className="w-full h-[100vh] bg-[pink]">
-        <RollModel />
-      </div>
-      <div className="h-[300vh]"></div> */}
     </>
   );
 }

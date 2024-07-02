@@ -30,24 +30,31 @@ const Project = ({ ref, scrollYProgress, isMobile, ProjectDetails }) => {
               style={{
                 scale: scrollYProgress,
               }}
-              className={`relative cursor-pointer z-[900] flex flex-col justify-between flex-wrap w-[90vw] md:w-[60vw] bg-[#fff] text-[#000] gap-[10px] duration-100 rounded-xl md:rounded-3xl p-2 md:p-5`}>
+              className={`relative cursor-pointer z-[900] flex flex-col justify-between flex-wrap w-[90vw] md:w-[60vw] bg-[#fff] text-[#000] gap-[10px] duration-100 rounded-3xl p-4 md:p-5`}>
               <img
-                className={`rounded-lg md:rounded-2xl w-full h-[40vh] ring-1 ring-[#000] object-cover ${
-                  isMobile ? `h-[60vh]` : `max-h-[40vh] h-auto`
+                className={`rounded-2xl w-full h-[40vh] ring-1 ring-[#000] object-cover ${
+                  isMobile ? `h-[40vh]` : `max-h-[40vh] h-auto`
                 }`}
                 src={isMobile ? detail.mobImg : detail.deskImg}></img>
-              <div className="flex flex-col md:flex-row justify-between gap-[10px] mb-[20px]">
-                <span>
-                  <h2 className="font-bold text-[18px] text-[#000] md:text-[24px]">
-                    {detail.title}
-                  </h2>
-                  <p className="text-[12px] md:text-[14px] text-[#444]">
-                    {detail.description}
-                  </p>
+              <div className="flex flex-col justify-between gap-[10px] mb-[20px]">
+                <span className="flex items-center gap-4">
+                  <img
+                    className="w-[30px] rounded-full"
+                    src={detail.icon}></img>
+                  <span>
+                    <h2 className="font-bold text-[12px] text-[#000] md:text-[16px]">
+                      {detail.title}
+                    </h2>
+                    <p className="text-[8px] md:text-[12px] text-[#444]">
+                      {detail.description}
+                    </p>
+                  </span>
                 </span>
-                <span className="flex flex-row md:flex-col justify-between md:justify-center gap-2">
-                  <span className="flex flex-col md:items-end">
-                    <p>Frontend</p>
+                <span className="flex flex-row md:flex-col justify-between gap-2">
+                  <span className="flex flex-col md:items-start">
+                    <p className="text-[12px] font-semibold md:text-[16px]">
+                      Frontend
+                    </p>
                     <span className="flex gap-2">
                       {detail.frontEnd && Array.isArray(detail.frontEnd) ? (
                         <span className="flex gap-2">
@@ -65,8 +72,10 @@ const Project = ({ ref, scrollYProgress, isMobile, ProjectDetails }) => {
                       )}
                     </span>
                   </span>
-                  <span className="flex flex-col md:items-end">
-                    <p>Backend</p>
+                  <span className="flex flex-col md:items-start">
+                    <p className="text-[12px] font-semibold md:text-[16px]">
+                      Backend
+                    </p>
                     <span className="flex gap-2">
                       {detail.backEnd && Array.isArray(detail.backEnd) ? (
                         <span className="flex gap-2">
@@ -86,9 +95,22 @@ const Project = ({ ref, scrollYProgress, isMobile, ProjectDetails }) => {
                   </span>
                 </span>
               </div>
-              <button className="bg-[#000] text-[#fff] text-[14px] md:text-[18px] font-bold rounded-xl p-4 outline-none">
-                Detail
-              </button>
+              <div className="flex gap-3">
+                <button className="bg-[#000] text-[#fff] rounded-full text-[14px] md:text-[18px] font-bold w-3/4 md:w-full p-3 outline-none">
+                  Detail
+                </button>
+                <div
+                  data-value="Link!!!"
+                  className="relative md:absolute py-2 bg-[#eee] md:bg-[#77ff3d] text-[#000] md:rotate-[-14deg] rounded-full w-1/4 md:w-[100px] text-center md:right-[-40px] md:bottom-[20%] ring-[0.5px] ring-[#777]">
+                  <a
+                    data-value="Link!!!"
+                    href={detail.link}
+                    target="_blank"
+                    className="font-light text-[14px]">
+                    लिंक
+                  </a>
+                </div>
+              </div>
             </motion.div>
           );
         })}
@@ -109,11 +131,15 @@ const ProjectDetails = [
       { tech: "./Icons/js.png" },
       { tech: "./Icons/react.png" },
       { tech: "./Icons/tailwind.png" },
+      { tech: "./Icons/css.png" },
     ],
     backEnd: [
       { tech: "./Icons/nodejs.png" }, // Assuming each tech is an object
       { tech: "./Icons/express.png" },
     ],
+    icon: "./ProjectIcon/holesail--logo.webp",
+    link: "http://holesail.io",
+    linkColor: "",
   },
   {
     deskImg: "./Projects/3siixtin-02.png",
@@ -130,6 +156,9 @@ const ProjectDetails = [
     backEnd: [
       { tech: "./Icons/wordpress.png" }, // Assuming each tech is an object
     ],
+    icon: "./ProjectIcon/holesail--logo.webp",
+    link: "http://3siixtin.com",
+    linkColor: "",
   },
   {
     deskImg: "./Projects/sibiro-02.png",
@@ -147,6 +176,9 @@ const ProjectDetails = [
       { tech: "./Icons/express.png" },
       { tech: "./Icons/nodejs.png" },
     ],
+    icon: "./ProjectIcon/sibiro--logo.svg",
+    link: "http://sibiro.ru",
+    linkColor: "",
   },
 ];
 
