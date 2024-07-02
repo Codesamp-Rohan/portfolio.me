@@ -59,7 +59,7 @@ const Project = ({ ref, scrollYProgress, isMobile, ProjectDetails }) => {
               </span>
             </div>
             <button className="bg-[#000] text-[#fff] text-[14px] md:text-[18px] font-bold rounded-xl p-4 outline-none">
-              Details
+              Detail
             </button>
           </motion.div>
         );
