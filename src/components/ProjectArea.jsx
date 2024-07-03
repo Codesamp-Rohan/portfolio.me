@@ -3,10 +3,7 @@ import { motion } from "framer-motion";
 
 const ProjectSection = ({ isMobile }) => {
   return (
-    <div
-      data-bgcolor="#000"
-      data-textcolor="#fff"
-      className="flex flex-col items-center">
+    <div data-color="#000" className="section flex flex-col items-center">
       <div className="section h-[60vh]"></div>
       <div className="section">
         <Project isMobile={isMobile} ProjectDetails={ProjectDetails} />
@@ -18,10 +15,12 @@ const ProjectSection = ({ isMobile }) => {
 const Project = ({ ref, scrollYProgress, isMobile, ProjectDetails }) => {
   return (
     <>
-      <h1 className="font-bold text-[18px] w-full text-center mb-[30px] relative z-[100]">
+      <h1
+        data-color="#000"
+        className="section font-bold text-[18px] w-full text-center pb-[30px] relative z-[100]">
         Projects
       </h1>
-      <div className="flex flex-col w-full gap-[5rem]">
+      <div className="flex flex-col w-full gap-[5rem] bg-transparent">
         {ProjectDetails.map((detail, i) => {
           return (
             <motion.div
@@ -177,6 +176,26 @@ const ProjectDetails = [
       { tech: "./Icons/nodejs.png" },
     ],
     icon: "./ProjectIcon/sibiro--logo.svg",
+    link: "http://sibiro.ru",
+    linkColor: "",
+  },
+  {
+    deskImg: "./Projects/docyard-01.png",
+    mobImg: "./Projects/docyard-02.png",
+    title: "Docyard",
+    description: "A marketing, web and app development agencies website.",
+    floatIcon: "",
+    frontEnd: [
+      { tech: "./Icons/html.png" }, // Assuming each tech is an object
+      { tech: "./Icons/css.png" },
+      { tech: "./Icons/js.png" },
+    ],
+    backEnd: [
+      { tech: "./Icons/mongodb.png" },
+      { tech: "./Icons/express.png" },
+      { tech: "./Icons/nodejs.png" },
+    ],
+    icon: "./ProjectIcon/docyard--logo.png",
     link: "http://sibiro.ru",
     linkColor: "",
   },

@@ -81,17 +81,23 @@ body {
   height: 100px;
   z-index: 999;
 }
-/* .gradient--black {
+.gradient--up {
   background-image: linear-gradient(
     0deg,
-    #000000,
-    #000000e1 40%,
-    #00000093 60%,
-    #00000041 90%,
-
-    #00000000 100%
+    #fff 5%,
+    #fffffff0 30%,
+    rgba(255, 255, 255, 0.825) 60%,
+    rgba(255, 255, 255, 0.325) 90%,
+    #00000000
   );
-} */
+  position: absolute;
+  bottom: 0;
+  right: auto;
+  left: auto;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+}
 .spotify--section {
   right: 35px;
   top: 8vh;

@@ -20,8 +20,29 @@
   font-family: Gobold;
   src: url(./fonts/GoboldBold.otf);
 }
+@font-face {
+  font-family: FK;
+  src: url(./fonts/FKFont.woff2);
+}
+@font-face {
+  font-family: PP;
+  src: url(./fonts/PPFont.woff2);
+}
+@font-face {
+  font-family: CG;
+  src: url(./fonts/CGFont.woff);
+}
 .goBold {
   font-family: Gobold;
+}
+.fkFont {
+  font-family: FK;
+}
+.ppFont {
+  font-family: PP;
+}
+.cgFont {
+  font-family: CG;
 }
 
 /* MemeGenerator */

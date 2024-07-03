@@ -43,53 +43,53 @@ export default function MemeGenerator() {
 
   return (
     <>
-      <div className="h-[60vh] bg-[#000]"></div>
       <div
-        data-bgcolor="#fff"
-        data-textcolor="#000"
-        className="flex flex-col bg-[#000] items-center relative">
+        data-color="#000"
+        className="section flex flex-col pt-[30vh] items-center relative">
         <h1 className="font-bold goBold text-[2rem] md:text-[6rem]">
           time for some meme
         </h1>
         <form
-          className="w-[95vw] md:w-[60vw] rounded-3xl flex flex-col items-center bg-[#fff] p-4 gap-10 shadow-xl"
+          className="w-[90vw] md:w-[60vw] rounded-3xl flex flex-col items-center bg-violet-200 ring-violet-700 ring-1 p-4 gap-10 shadow-xl"
           onSubmit={handleSubmit}>
-          <span className="flex gap-4">
-            <input
-              type="text"
-              className="w-[100%] p-2 bg-[#fff] ring-1 ring-[#bbb] rounded-lg text-[#bbb]"
-              placeholder="Meme top text"
-              name="topText"
-              value={memeImage.topText}
-              onChange={changeMeme}
-            />
-            <input
-              type="text"
-              className="w-[100%] p-2 bg-[#fff] ring-1 ring-[#bbb] rounded-lg text-[#bbb]"
-              placeholder="Meme bottom text"
-              name="bottomText"
-              value={memeImage.bottomText}
-              onChange={changeMeme}
-            />
+          <span>
+            <span className="flex gap-4">
+              <input
+                type="text"
+                className="w-[100%] p-2 bg-[#fff] ring-1 ring-[#bbb] rounded-lg text-[#bbb]"
+                placeholder="Meme top text"
+                name="topText"
+                value={memeImage.topText}
+                onChange={changeMeme}
+              />
+              <input
+                type="text"
+                className="w-[100%] p-2 bg-[#fff] ring-1 ring-[#bbb] rounded-lg text-[#bbb]"
+                placeholder="Meme bottom text"
+                name="bottomText"
+                value={memeImage.bottomText}
+                onChange={changeMeme}
+              />
+            </span>
+            <div className="meme relative">
+              <h1 className="meme--text top absolute text-white left-[50%] translate-x-[-50%]">
+                {memeImage.topText}
+              </h1>
+              <img
+                src={memeImage.image}
+                alt="meme"
+                className="md:h-[40vh] rounded-lg shadow-2xl"
+              />
+              <h1 className="meme--text bottom">{memeImage.bottomText}</h1>
+            </div>
           </span>
-          <div className="meme relative">
-            <h1 className="meme--text top absolute text-white left-[50%] translate-x-[-50%]">
-              {memeImage.topText}
-            </h1>
-            <img
-              src={memeImage.image}
-              alt="meme"
-              className="md:h-[40vh] rounded-lg shadow-2xl"
-            />
-            <h1 className="meme--text bottom">{memeImage.bottomText}</h1>
-          </div>
           <button className="w-full bg-violet-600 rounded-full p-3 text-[#fff] font-bold form-button">
             Generate Meme
           </button>
         </form>
         <div
           data-value="it is not going to work!!!"
-          className="p-4 bg-[#ffbdbd] md:absolute mt-[40px] md:mt-auto rounded-2xl left-[100px] top-[30%] md:rotate-[-14deg] ring-1 ring-[red] flex flex-col gap-10">
+          className="p-4 bg-[#ffbdbd] md:absolute w-[90vw] md:w-auto mt-[40px] md:mt-auto rounded-2xl left-[100px] top-[50%] md:rotate-[-14deg] ring-1 ring-[red] flex flex-col gap-10">
           <span>
             <h1
               data-value="it is not going to work!!!"
@@ -110,7 +110,7 @@ export default function MemeGenerator() {
             Download
           </button>
         </div>
-        <div className="h-[60vh]"></div>
+        <div className="h-[20vh]"></div>
       </div>
     </>
   );

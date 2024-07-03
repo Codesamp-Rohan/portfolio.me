@@ -12,11 +12,44 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 import MemeGenerator from "./components/memeGenerator";
+import SocialComp from "./components/socialContain";
 
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
+  const socialDivRef = useRef();
+  const socialRef = useRef();
   const constraintsRef = useRef(null);
+
+  var tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".section", // Selects all sections as triggers
+      start: "0% 0%", // Trigger animation when section enters viewport
+      end: "40% 0%", // Trigger animation until section exits viewport
+      scrub: true, // Continuously update animations as user scrolls
+    },
+  });
+
+  // Get all sections
+  const sections = document.querySelectorAll(".section");
+
+  // Loop through sections and create tweens
+  sections.forEach((section, index) => {
+    // Extract or define desired background color for each section
+    const color = section.dataset.color || "transparent"; // Default to lightblue
+
+    tl.to(
+      section,
+      {
+        // Animate the current section
+        backgroundColor: color,
+        duration: 4, // Adjust duration as needed
+        ease: "linear", // Customize easing for smooth transition
+      },
+      index === 0 ? "0%" : ">-=" + index * 5 + "%"
+    ); // Stagger animations based on section index
+  });
+
   const [isVisible, setIsVisible] = useState(true);
   const [isSecondVisible, setIsSecondVisible] = useState(true);
 
@@ -56,46 +89,6 @@ function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // ScrollTrigger Login for BgColor change.
-  const mainRef = useRef(null); // useRef for scroll container reference
-
-  useEffect(() => {
-    const sections = mainRef.current.querySelectorAll("[data-bgcolor]"); // Get all sections
-
-    sections.forEach((section, i) => {
-      const prevSection = sections[i - 1]; // Get previous section (if any)
-      const prevBgColor = prevSection ? prevSection.dataset.bgcolor : "";
-      const prevTextColor = prevSection ? prevSection.dataset.textcolor : "";
-
-      ScrollTrigger.create({
-        trigger: section,
-        start: "top 0%", // Trigger animation when section reaches 50% viewport
-        onEnter: () =>
-          gsap.to(section, {
-            duration: 0.5, // Adjust animation duration if needed
-            backgroundColor: section.dataset.bgcolor,
-            color: section.dataset.textcolor,
-            overwrite: "auto",
-          }),
-        onLeaveBack: () =>
-          gsap.to(section, {
-            duration: 0.5, // Adjust animation duration if needed
-            backgroundColor: prevBgColor,
-            color: prevTextColor,
-            overwrite: "auto",
-          }),
-      });
-    });
-
-    // Update ScrollTrigger on window scroll
-    window.addEventListener("scroll", ScrollTrigger.update);
-
-    return () => {
-      // Cleanup function (optional)
-      window.removeEventListener("scroll", ScrollTrigger.update); // Remove listener on unmount
-    };
-  }, []);
-
   return (
     <>
       {!isMobile && <MouseFollower />}
@@ -105,7 +98,7 @@ function App() {
           menu
         </button>
       </nav>
-      <div ref={mainRef}>
+      <div className="main">
         <AnimatePresence>
           <motion.div
             ref={constraintsRef}
@@ -273,6 +266,8 @@ function App() {
         </div>
         <ProjectSection isMobile={isMobile} />
         <MemeGenerator />
+        <SocialComp socialDivRef={socialDivRef} socialRef={socialRef} />
+        <div className="h-[100vh]"></div>
       </div>
     </>
   );
