@@ -61,11 +61,11 @@ const SocialComp = ({ socialRef, socialDivRef }) => {
             src="https://t4.ftcdn.net/jpg/03/99/98/21/360_F_399982138_M625qx2oLqHIuUUIN69jhdtHOub4hJpt.jpg"></img>
         </div>
       </div>
-      <div data-color="#80AF81" className="section relative">
-        <h1 className="cgFont sticky top-0 text-[4rem] text-white pt-[40vh] md:text-[10rem] text-center">
+      <div data-color="#D5FF43" className="section relative">
+        <h1 className="cgFont sticky top-0 text-[4rem] text-[#000] pt-[40vh] md:text-[10rem] text-center">
           TOOOOOOLS
         </h1>
-        <p className="sticky top-0 text-[2rem] pt-[50vh] text-[#c6ffc7] md:pt-[65vh] md:text-[4rem] text-center">
+        <p className="sticky top-0 text-[2rem] pt-[50vh] text-[#000] md:pt-[65vh] md:text-[4rem] text-center">
           I use
         </p>
         <div className="h-[60vh]"></div>
@@ -74,12 +74,20 @@ const SocialComp = ({ socialRef, socialDivRef }) => {
             return (
               <div
                 key={index}
-                className={`w-[60vw] md:w-[600px] absolute  p-4 ring-1 ring-[#000] 
+                className={`w-[60vw] backdrop-blur-sm md:w-[600px] absolute  p-4 ring-1 ring-[#000] 
   ${tool.desktop} ${tool.mobile} ${tool.desktoptop} ${tool.mobiletop}`}>
                 <img
-                  className="w-[100%] ring-1 ring-[#eee]"
+                  className="w-[100%] h-[30vh] object-cover ring-1 ring-[#eee]"
                   src={tool.img}></img>
-                <h1 className="text-[#fff] font-bold">{tool.name}</h1>
+                <h1 className="text-[#000] text-[2rem] font-bold">
+                  {tool.name}
+                </h1>
+                <h1 className="text-[#000] text-[1rem] font-thin">
+                  {tool.hindi}
+                </h1>
+                <button className="w-full p-4 bg-[#000] text-white">
+                  Link
+                </button>
               </div>
             );
           })}
@@ -92,6 +100,7 @@ const SocialComp = ({ socialRef, socialDivRef }) => {
 const tools = [
   {
     name: "Colorhunt",
+    hindi: "रंग शिकार",
     img: "./Tools/colorhunt.png",
     link: "./colorhunt.co",
     desktop: "md:left-[10%]",
@@ -105,7 +114,7 @@ const tools = [
     link: "./colorhunt.co",
     desktop: "md:right-[10%]",
     mobile: "right-4",
-    desktoptop: "top-[20%]",
+    desktoptop: "top-[25%]",
     mobiletop: "",
   },
   {
@@ -123,7 +132,7 @@ const tools = [
     link: "./colorhunt.co",
     desktop: "md:left-[40%]",
     mobile: "right-4",
-    desktoptop: "top-[80%]",
+    desktoptop: "top-[75%]",
     mobiletop: "",
   },
 ];

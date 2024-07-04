@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@motionone/utils": "^10.18.0",
+    "@react-three/cannon": "^6.6.0",
     "@react-three/drei": "^9.108.1",
     "@react-three/fiber": "^8.16.8",
     "@sketchfab/viewer-api": "^1.12.1",
@@ -22,10 +23,11 @@
     "react": "^18.3.1",
     "react-device-detect": "^2.2.3",
     "react-dom": "^18.3.1",
+    "react-three-fiber": "^6.0.13",
     "scrolltrigger": "^1.0.1",
     "smooth-scrollbar-react": "^2.4.1",
     "swiper": "^11.1.4",
-    "three": "^0.166.0"
+    "three": "^0.166.1"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",

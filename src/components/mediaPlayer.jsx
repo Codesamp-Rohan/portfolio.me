@@ -1,14 +1,26 @@
 import { motion, useScroll } from "framer-motion";
 import { useRef } from "react";
-// import { useEffect, useState } from "react";
+import { useState } from "react";
 
-const MediaPlayer = ({ isPlaying, handleClick, audioRef }) => {
+const MediaPlayer = () => {
   const ref = useRef(null);
 
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["0 1", "2 1"],
   });
+
+  const [isPlaying, setIsPlaying] = useState(true);
+  const audioRef = useRef(null);
+
+  const handleClick = () => {
+    setIsPlaying(!isPlaying);
+    if (isPlaying) {
+      audioRef.current.play();
+    } else {
+      audioRef.current.pause();
+    }
+  };
 
   return (
     <motion.div

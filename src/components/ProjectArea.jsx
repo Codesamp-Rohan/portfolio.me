@@ -15,9 +15,7 @@ const ProjectSection = ({ isMobile }) => {
 const Project = ({ ref, scrollYProgress, isMobile, ProjectDetails }) => {
   return (
     <>
-      <h1
-        data-color="#000"
-        className="section font-bold text-[18px] w-full text-center pb-[30px] relative z-[100]">
+      <h1 className="section text-white font-bold text-[18px] w-full text-center pb-[30px] relative z-[100]">
         Projects
       </h1>
       <div className="flex flex-col w-full gap-[5rem] bg-transparent">

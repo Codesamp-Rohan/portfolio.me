@@ -13,6 +13,8 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 import MemeGenerator from "./components/memeGenerator";
 import SocialComp from "./components/socialContain";
+import Plane from "./components/Plane";
+import SocialContainer from "./components/socialContainer";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -259,15 +261,21 @@ function App() {
         </div>
         <div className="relative w-full flex justify-center">
           <MediaPlayer
-            isPlaying={isPlaying}
-            handleClick={handleClick}
-            audioRef={audioRef}
+          // isPlaying={isPlaying}
+          // handleClick={handleClick}
+          // audioRef={audioRef}
           />
         </div>
         <ProjectSection isMobile={isMobile} />
         <MemeGenerator />
         <SocialComp socialDivRef={socialDivRef} socialRef={socialRef} />
-        <div className="h-[100vh]"></div>
+        <Plane isMobile={isMobile} />
+        <SocialContainer />
+        <div className="flex items-center justify-center">
+          <h1 className="goBold text-[3rem] md:text-[10rem]">
+            ROHAN CHAUDHARY
+          </h1>
+        </div>
       </div>
     </>
   );
