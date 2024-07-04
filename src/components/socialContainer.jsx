@@ -16,7 +16,7 @@ const SocialContainer = () => {
   gsap.to(".social--box", {
     scrollTrigger: {
       trigger: ".social--box",
-      start: "top -90%",
+      start: "top -100%",
       end: "bottom -100%",
       scrub: true,
       //   markers: true,
