@@ -1,7 +1,7 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useEffect } from "react";
-import { isMobile } from "react-device-detect";
+// import { isMobile } from "react-device-detect";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -62,22 +62,31 @@ const SocialComp = ({ socialRef, socialDivRef }) => {
         </div>
       </div>
       <div data-color="#D5FF43" className="section relative">
-        <h1 className="cgFont sticky top-0 text-[4rem] text-[#000] pt-[40vh] md:text-[10rem] text-center">
+        <h1 className="cgFont sticky top-0 text-[4rem] text-[#000] pt-[30vh] md:text-[10rem] text-center">
           TOOOOOOLS
         </h1>
-        <p className="sticky italic top-0 text-[4rem] pt-[50vh] text-[#000] md:pt-[65vh] md:text-[8rem] text-center">
+        <p className="sticky italic top-0 text-[4rem] pt-[45vh] text-[#000] md:pt-[55vh] md:text-[8rem] text-center">
           INSPIRATION
         </p>
         <div className="h-[60vh]"></div>
         <div className="relative flex flex-col gap-[20rem] h-[240vh] md:h-[400vh]">
+          <img
+            className="w-[100px] absolute top-[70%] left-10"
+            src="./Icons/dribbble.png"
+            alt="icon"></img>
+          <img
+            data-speed="1.2"
+            className="w-[100px] absolute top-[20%] right-10"
+            src="./Icons/figma.png"
+            alt="icon"></img>
           {tools.map((tool, index) => {
             return (
               <div
                 key={index}
-                className={`w-[60vw] backdrop-blur-sm md:w-[600px] absolute  p-4 ring-1 ring-[#000] 
+                className={`w-[80vw] backdrop-blur-sm md:w-[600px] absolute  p-4 ring-1 ring-[#000] 
   ${tool.desktop} ${tool.mobile} ${tool.desktoptop} ${tool.mobiletop}`}>
                 <img
-                  className="w-[100%] h-[30vh] object-cover ring-1 ring-[#eee]"
+                  className="w-[100%] md:h-[30vh] object-contain md:object-cover ring-1 ring-[#eee]"
                   src={tool.img}></img>
                 <h1 className="text-[#000] text-[2rem] font-bold">
                   {tool.name}

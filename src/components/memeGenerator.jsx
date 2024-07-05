@@ -44,7 +44,7 @@ export default function MemeGenerator() {
   return (
     <>
       <div
-        data-color="#000"
+        data-color="#131842"
         className="section flex flex-col pt-[30vh] items-center relative">
         <h1 className="font-bold text-[#fff] uppercase text-[2rem] ">
           time for some meme

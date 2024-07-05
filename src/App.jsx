@@ -260,18 +260,31 @@ function App() {
           <TechMarquee />
         </div>
         <div className="relative w-full flex justify-center">
-          <MediaPlayer
-          // isPlaying={isPlaying}
-          // handleClick={handleClick}
-          // audioRef={audioRef}
-          />
+          <MediaPlayer />
         </div>
         <ProjectSection isMobile={isMobile} />
         <MemeGenerator />
         <SocialComp socialDivRef={socialDivRef} socialRef={socialRef} />
         <Plane isMobile={isMobile} />
         <SocialContainer />
-        <div className="flex items-center justify-center">
+        <div className="flex flex-col items-center justify-center">
+          <span className="flex gap-[2rem]">
+            <a>
+              <img className="w-[40px]" src="./github.png" alt="icon"></img>
+            </a>
+            <a>
+              <img
+                className="w-[40px] bg-[#0B66C2] rounded-lg"
+                src="./linkedin.png"
+                alt="icon"></img>
+            </a>
+            <a>
+              <img className="w-[40px]" src="./apple.png" alt="icon"></img>
+            </a>
+            <a>
+              <img className="w-[40px]" src="./coffee.png" alt="icon"></img>
+            </a>
+          </span>
           <h1 className="goBold text-[3rem] md:text-[10rem]">
             ROHAN CHAUDHARY
           </h1>

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const ProjectSection = ({ isMobile }) => {
   return (
-    <div data-color="#000" className="section flex flex-col items-center">
+    <div data-color="#131842" className="section flex flex-col items-center">
       <div className="section h-[60vh]"></div>
       <div className="section">
         <Project isMobile={isMobile} ProjectDetails={ProjectDetails} />

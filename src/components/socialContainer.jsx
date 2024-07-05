@@ -36,7 +36,7 @@ const SocialContainer = () => {
   });
 
   return (
-    <div className="flex justify-center w-screen h-[100vh] md:h-[300vh]">
+    <div className="flex justify-center w-screen bottom--div--height">
       <div className="social--middle flex items-center justify-center sticky top-0 w-[40vw] h-[40vh] md:w-[600px] md:h-[600px]">
         <div className="social--box sticky top-40 w-[400px] h-[400px]">
           <img
