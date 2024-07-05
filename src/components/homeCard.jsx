@@ -3,95 +3,48 @@ import { motion } from "framer-motion";
 const HomeCard = ({ isVisible, constraintsRef }) => {
   return (
     <>
-      <motion.span
-        drag
-        dragConstraints={constraintsRef}
-        animate={{ opacity: 1, filter: "blur(0)" }}
-        transition={{ ease: "easeInOut", duration: 2, delay: 1 }}
-        data-value="know more about me."
-        className={`flex opacity-0 blur-[30px] absolute z-[200] cursor-pointer flex-col gap-[12px] md:gap-[3rem] bg-[#f6eaff] p-2 md:p-6 rounded-xl md:rounded-[20px] ring-1 ring-[#bbb] rotate-[-15deg] hover:shadow-xl duration-100 top-[10vh] md:top-[40px] left-0 ${
-          !isVisible ? "hide--left" : ""
-        }`}>
-        <span data-value="know more about me.">
-          <img
-            className="w-[25px] md:w-[35px]"
-            src="./account.png"
-            data-value="know more about me."></img>
-          <p
-            className="text-[10px] md:text-[14px] font-medium md:font-semibold text-[#444]"
-            data-value="know more about me.">
-            All About Me
-          </p>
-        </span>
-        <button
-          data-value="know more about me."
-          className="bg-[#AC66DD] w-[120px] md:w-auto p-2 md:py-2 md:px-4 text-[10px] md:text-[16px] rounded-md md:rounded-full border-[1px] border-[#822ebe] shadow-xl text-[#fff] active:shadow-none">
-          Wanna know?
-        </button>
-      </motion.span>
-      <motion.span
-        animate={{ opacity: 1, filter: "blur(0)" }}
-        transition={{ ease: "easeInOut", duration: 2, delay: 2 }}
-        drag
-        dragConstraints={constraintsRef}
-        data-value="github."
-        className={`flex absolute opacity-0 blur-[30px]  z-[200] flex-col gap-[8rem] md:gap-[9rem] bg-[#eee] p-4 md:p-6 rounded-xl md:rounded-[20px] ring-1 ring-[#bbb] cursor-pointer rotate-[6deg] md:rotate-[-3deg] hover:shadow-xl duration-100 top-[4vh] md:top-[14vh] right-[-100px] text-black ${
-          !isVisible ? "hide--right" : ""
-        }`}>
-        <span data-value="github">
-          <img
-            className="w-[25px] md:w-[35px]"
-            src="./github.png"
-            data-value="github."></img>
-          <p
-            className="text-[14px] md:text-[18px] font-medium md:font-semibold text-[#000]"
-            data-value="github.">
-            My GitHub
-          </p>
-          <p data-value="github." className="text-[8px] md:text-[12px]">
-            @Codesamp-Rohan
-          </p>
-        </span>
-        <button
-          data-value="github."
-          className="w-[200px] md:w-[300px] bg-[#02040A] p-2 md:py-2 md:px-4 text-[10px] md:text-[16px] rounded-md border-[1px] border-[#777] shadow-xl text-[#fff] active:shadow-none flex gap-[10px] md:justify-evenly">
-          <p data-value="github." className="font-extrabold">
-            Follow
-          </p>{" "}
-        </button>
-      </motion.span>
-      <motion.span
-        animate={{ opacity: 1, filter: "blur(0)" }}
-        transition={{ ease: "easeInOut", duration: 2, delay: 1 }}
-        drag
-        dragConstraints={constraintsRef}
-        data-value="linkedin."
-        className={`flex absolute opacity-0 blur-[30px]  z-[200] flex-col gap-[2rem] md:gap-[3rem] bg-[#f2f9ff] p-4 md:p-6 rounded-xl md:rounded-[20px] ring-1 ring-[#bbb] cursor-pointer rotate-[9deg] hover:shadow-xl duration-100 top-[50vh] right-0 ${
-          !isVisible ? "hide--right" : ""
-        }`}>
-        <span data-value="linkedin">
-          <img
-            className="w-[25px] md:w-[35px]"
-            src="./linkedin.png"
-            data-value="linkedin."></img>
-          <p
-            className="text-[14px] md:text-[18px] font-medium md:font-semibold text-[#444]"
-            data-value="linkedin.">
-            My LinkedIn
-          </p>
-          <p data-value="linkedin." className="text-[8px] md:text-[12px]">
-            @rohan-chaudhary-399742255
-          </p>
-        </span>
-        <button
-          data-value="linkedin."
-          className="bg-[#0B66C2] p-2 md:py-2 md:px-4 text-[10px] md:text-[16px] rounded-md md:rounded-full border-[1px] border-[#224f7b] shadow-xl text-[#fff] active:shadow-none flex gap-[10px] md:justify-evenly">
-          <p data-value="linkedin." className="font-extrabold">
-            Follow
-          </p>{" "}
-          1.27k
-        </button>
-      </motion.span>
+      {cards.map((card, i) => {
+        return (
+          <motion.span
+            key={i}
+            drag
+            dragConstraints={constraintsRef}
+            animate={{ opacity: 1, filter: "blur(0)" }}
+            transition={{ ease: "easeInOut", duration: 2, delay: 1 }}
+            data-value={card.dataValue}
+            className={`flex opacity-0 blur-[30px] absolute w-fit z-[200] cursor-pointer flex-col ${
+              card.mobGap
+            } ${card.deskGap} ${
+              card.cardBgColor
+            } p-2 md:p-6 rounded-xl md:rounded-[20px] ring-1 ${card.cardRing} ${
+              card.deskRotate
+            } ${card.mobileRotate} hover:shadow-xl duration-100 ${
+              card.mobileLeftRight
+            } ${card.deskLeftRight} ${card.mobileTop} ${card.deskTop} ${
+              !isVisible ? card.hide : ""
+            }`}>
+            <span data-value={card.dataValue}>
+              <img
+                className={`${card.deskImg} ${card.mobImg}`}
+                src={card.url}
+                data-value={card.dataValue}></img>
+              <p
+                className="text-[10px] md:text-[14px] font-medium md:font-semibold text-[#444]"
+                data-value={card.dataValue}>
+                {card.title}
+              </p>
+              <p data-value="github." className="text-[8px] md:text-[12px]">
+                {card.subTitle}
+              </p>
+            </span>
+            <button
+              data-value={card.dataValue}
+              className={`p-2 md:py-2 md:px-4 text-[10px] md:text-[16px] font-bold rounded-md md:rounded-full border-[1px] shadow-xl active:shadow-none ${card.deskButtonWidth} ${card.mobileButtonWidth} ${card.borderColor} ${card.buttonBgColor} ${card.mobileButtonWidth} ${card.deskButtonWidth} ${card.btnColor}`}>
+              {card.button}
+            </button>
+          </motion.span>
+        );
+      })}
       <motion.span
         animate={{ opacity: 1, filter: "blur(0)" }}
         transition={{ ease: "easeInOut", duration: 2, delay: 1 }}
@@ -118,36 +71,111 @@ const HomeCard = ({ isVisible, constraintsRef }) => {
           className="w-[20px] sm:w-[40px]"
           src="./heart.png"></img>
       </motion.span>
-      <motion.span
-        animate={{ opacity: 1, filter: "blur(0)" }}
-        transition={{ ease: "easeInOut", duration: 2, delay: 2 }}
-        drag
-        dragConstraints={constraintsRef}
-        data-value="support."
-        className={`flex w-fit absolute z-[200] opacity-0 blur-[30px]  flex-col gap-[2rem] md:gap-[3rem] bg-[#fff8c7] p-4 md:p-6 rounded-xl md:rounded-[20px] ring-1 ring-[#bbb] cursor-pointer rotate-[-15deg] md:rotate-[9deg] hover:shadow-xl duration-100 md:top-[55vh] top-[64vh] right-0 md:left-[200px] ${
-          !isVisible ? "hide--left" : ""
-        }`}>
-        <span data-value="support">
-          <img
-            className="w-[25px] bg-[#FFDD04] rounded-lg p-[5px] md:w-[35px]"
-            src="./coffee.png"
-            data-value="support."></img>
-          <p
-            className="text-[14px] md:text-[18px] font-medium md:font-semibold text-[#444]"
-            data-value="support.">
-            Support
-          </p>
-        </span>
-        <button
-          data-value="support."
-          className="bg-[#FFDD04] w-[140px] p-2 md:py-2 md:px-4 text-[10px] md:text-[16px] rounded-md border-[1px] border-[#9e8e23] shadow-xl text-[#000] active:shadow-none flex gap-[10px] md:justify-evenly">
-          <p data-value="support." className="font-bold">
-            Support
-          </p>
-        </button>
-      </motion.span>
     </>
   );
 };
+
+const cards = [
+  {
+    title: "All about me",
+    subTitle: "",
+    button: "Wanna know?",
+    url: "./account.png",
+    hide: "hide--left",
+    deskTop: "md:top-[40px]",
+    mobileTop: "top-[10vh]",
+    deskLeftRight: "md:left-0",
+    mobileLeftRight: "left-0",
+    deskRotate: "md:rotate-[-15deg]",
+    mobileRotate: "rotate-[-15deg]",
+    cardBgColor: "bg-[#f6eaff]",
+    cardRing: "ring-[#bbb]",
+    buttonBgColor: "bg-[#AC66DD]",
+    borderColor: "border-[#822ebe]",
+    mobileButtonWidth: "w-[120px]",
+    deskButtonWidth: "md:w-auto",
+    dataValue: "about me.",
+    deskImg: "md:w-[35px]",
+    mobImg: "w-[25px]",
+    deskGap: "md:gap-[3rem]",
+    mobGap: "gap-[12px]",
+    btnColor: "text-[#fff]",
+  },
+  {
+    title: "GitHub",
+    subTitle: "@codesamp-rohan",
+    button: "Follow",
+    url: "./github.png",
+    hide: "hide--right",
+    deskTop: "md:top-[14vh]",
+    mobileTop: "top-[4vh]",
+    deskLeftRight: "md:right-[-100px]",
+    mobileLeftRight: "right-[-100px]",
+    deskRotate: "md:rotate-[-3deg]",
+    mobileRotate: "rotate-[6deg]",
+    cardBgColor: "bg-[#eee]",
+    cardRing: "ring-[#bbb]",
+    buttonBgColor: "bg-[#02040A]",
+    borderColor: "border-[#777]",
+    mobileButtonWidth: "w-[200px]",
+    deskButtonWidth: "md:w-[300px]",
+    dataValue: "github.",
+    deskImg: "md:w-[35px]",
+    mobImg: "w-[25px]",
+    deskGap: "md:gap-[9rem]",
+    mobGap: "gap-[8rem]",
+    btnColor: "text-[#fff]",
+  },
+  {
+    title: "LinkedIn",
+    subTitle: "@rohan-chaudhary-399742255",
+    button: "Follow",
+    url: "./linkedin.png",
+    hide: "hide--right",
+    deskTop: "md:top-[50vh]",
+    mobileTop: "top-[50vh]",
+    deskLeftRight: "md:right-0",
+    mobileLeftRight: "right-0",
+    deskRotate: "md:rotate-[9deg]",
+    mobileRotate: "rotate-[9deg]",
+    cardBgColor: "bg-[#f2f9ff]",
+    cardRing: "ring-[#bbb]",
+    buttonBgColor: "bg-[#0B66C2]",
+    borderColor: "border-[#224f7b]",
+    mobileButtonWidth: "w-[120px]",
+    deskButtonWidth: "md:w-[300px]",
+    dataValue: "linkedin.",
+    deskImg: "md:w-[35px]",
+    mobImg: "w-[25px]",
+    deskGap: "md:gap-[3rem]",
+    mobGap: "gap-[2rem]",
+    btnColor: "text-[#fff]",
+  },
+  {
+    title: "Support",
+    subTitle: "@codesamprohan",
+    button: "Support",
+    url: "./coffee.png",
+    hide: "hide--left",
+    deskTop: "md:top-[55vh]",
+    mobileTop: "top-[64vh]",
+    deskLeftRight: "md:left-[200px]",
+    mobileLeftRight: "right-0",
+    deskRotate: "md:rotate-[9deg]",
+    mobileRotate: "rotate-[-15deg]",
+    cardBgColor: "bg-[#fff8c7]",
+    cardRing: "ring-[#bbb]",
+    buttonBgColor: "bg-[#FFDD04]",
+    borderColor: "border-[#9e8e23]",
+    mobileButtonWidth: "w-[130px]",
+    deskButtonWidth: "md:w-[150px]",
+    dataValue: "buymeacoffee.",
+    deskImg: "md:w-[35px]",
+    mobImg: "w-[25px]",
+    deskGap: "md:gap-[3rem]",
+    mobGap: "gap-[2rem]",
+    btnColor: "text-[#000]",
+  },
+];
 
 export default HomeCard;

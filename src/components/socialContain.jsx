@@ -65,8 +65,8 @@ const SocialComp = ({ socialRef, socialDivRef }) => {
         <h1 className="cgFont sticky top-0 text-[4rem] text-[#000] pt-[40vh] md:text-[10rem] text-center">
           TOOOOOOLS
         </h1>
-        <p className="sticky top-0 text-[2rem] pt-[50vh] text-[#000] md:pt-[65vh] md:text-[4rem] text-center">
-          I use
+        <p className="sticky italic top-0 text-[4rem] pt-[50vh] text-[#000] md:pt-[65vh] md:text-[8rem] text-center">
+          INSPIRATION
         </p>
         <div className="h-[60vh]"></div>
         <div className="relative flex flex-col gap-[20rem] h-[240vh] md:h-[400vh]">
@@ -85,9 +85,11 @@ const SocialComp = ({ socialRef, socialDivRef }) => {
                 <h1 className="text-[#000] text-[1rem] font-thin">
                   {tool.hindi}
                 </h1>
-                <button className="w-full p-4 bg-[#000] text-white">
-                  Link
-                </button>
+                <a href={tool.link} target="_blank">
+                  <button className="w-full mt-[2rem] p-4 bg-[#000] text-white">
+                    Link
+                  </button>
+                </a>
               </div>
             );
           })}
@@ -102,34 +104,37 @@ const tools = [
     name: "Colorhunt",
     hindi: "रंग शिकार",
     img: "./Tools/colorhunt.png",
-    link: "./colorhunt.co",
+    link: "https://colorhunt.co",
     desktop: "md:left-[10%]",
     mobile: "left-4",
     desktoptop: "top-0",
     mobiletop: "",
   },
   {
-    name: "Colorhunt",
-    img: "./Tools/colorhunt.png",
-    link: "./colorhunt.co",
+    name: "Figma",
+    hindi: "फिग्मा",
+    img: "https://cdn.sanity.io/images/599r6htc/regionalized/266ec07c0cfe14229530256bb9700e0bce7ff8d4-2400x1260.png?w=1200&q=70&fit=max&auto=format",
+    link: "https://figma.com",
     desktop: "md:right-[10%]",
     mobile: "right-4",
     desktoptop: "top-[25%]",
     mobiletop: "",
   },
   {
-    name: "Colorhunt",
-    img: "./Tools/colorhunt.png",
-    link: "./colorhunt.co",
+    name: "Awwwards",
+    hindi: "पुरररस्कार",
+    img: "https://www.bookmarks.design/media/image/awwwards.jpg",
+    link: "https://awwwards.com",
     desktop: "md:left-[30%]",
     mobile: "left-4",
     desktoptop: "top-[50%]",
     mobiletop: "",
   },
   {
-    name: "Colorhunt",
-    img: "./Tools/colorhunt.png",
-    link: "./colorhunt.co",
+    name: "Dribbble",
+    hindi: "ड्रिबबबल",
+    img: "https://logowik.com/content/uploads/images/dribbble-new-20235066.logowik.com.webp",
+    link: "https://dribbble.com",
     desktop: "md:left-[40%]",
     mobile: "right-4",
     desktoptop: "top-[75%]",

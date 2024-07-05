@@ -7,7 +7,7 @@ const MediaPlayer = () => {
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["0 1", "2 1"],
+    offset: ["1 2", "2 1"],
   });
 
   const [isPlaying, setIsPlaying] = useState(true);

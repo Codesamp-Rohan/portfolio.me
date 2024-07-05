@@ -17,20 +17,30 @@ const SocialContainer = () => {
     scrollTrigger: {
       trigger: ".social--box",
       start: "top -100%",
-      end: "bottom -100%",
+      end: "bottom -150%",
       scrub: true,
       //   markers: true,
     },
     width: "100vw",
     height: "100vh",
   });
+  gsap.to(".my--img", {
+    scrollTrigger: {
+      trigger: ".social--box",
+      start: "top -100%",
+      end: "bottom -150%",
+      scrub: true,
+      //   markers: true,
+    },
+    scale: 2,
+  });
 
   return (
     <div className="flex justify-center w-screen h-[100vh] md:h-[300vh]">
       <div className="social--middle flex items-center justify-center sticky top-0 w-[40vw] h-[40vh] md:w-[600px] md:h-[600px]">
-        <div className="social--box relative w-[400px] h-[400px]">
+        <div className="social--box sticky top-40 w-[400px] h-[400px]">
           <img
-            className="w-[200px] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"
+            className="my--img w-[200px] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"
             src="https://images.bitmoji.com/3d/avatar/36722684-100845834104_5-s5-v1.webp"></img>
           <span
             data-value="GitHub."
