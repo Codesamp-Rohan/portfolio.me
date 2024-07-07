@@ -1,24 +1,88 @@
 /* eslint-disable react/prop-types */
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 const ProjectSection = ({ isMobile }) => {
+  const [activeProject, setActiveProject] = useState(null);
+
+  const handleProjectClick = (project) => {
+    setActiveProject(project);
+  };
+
+  const closeProject = () => {
+    setActiveProject(null);
+  };
+
+  useEffect(() => {
+    if (activeProject) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+  }, [activeProject]);
+
   return (
-    <div data-color="#131842" className="section flex flex-col items-center">
+    <div data-color="#000" className="section flex flex-col items-center">
       <div className="section h-[60vh]"></div>
       <div className="section">
-        <Project isMobile={isMobile} ProjectDetails={ProjectDetails} />
+        <Project
+          isMobile={isMobile}
+          ProjectDetails={ProjectDetails}
+          activeProject={activeProject}
+          onProjectClick={handleProjectClick}
+          onClose={closeProject}
+        />
       </div>
     </div>
   );
 };
 
-const Project = ({ ref, scrollYProgress, isMobile, ProjectDetails }) => {
+const Project = ({
+  ref,
+  scrollYProgress,
+  isMobile,
+  ProjectDetails,
+  activeProject,
+  onProjectClick,
+  onClose,
+}) => {
   return (
     <>
       <h1 className="section text-white font-bold text-[18px] w-full text-center pb-[30px] relative z-[100]">
         Projects
       </h1>
-      <div className="flex flex-col w-full gap-[5rem] bg-transparent">
+      <div className="flex flex-col items-center w-full gap-[5rem] bg-transparent relative">
+        <div
+          className={`w-[100vw] overflow-y-scroll duration-500 ease-out p-10 bg-[#eee] z-[999] fixed top-0 ${
+            activeProject
+              ? `h-full scale-1 pointer-events-auto`
+              : `h-0 scale-0 pointer-events-none`
+          }`}>
+          <nav className="fixed right-10">
+            <button onClick={onClose}>close.</button>
+          </nav>
+          {activeProject && (
+            <>
+              <h1 className="text-[3rem] md:text-[10rem] uppercase font-bold sticky top-10">
+                {activeProject.title}
+              </h1>
+              <p className="w-[100%] md:w-[65%] md:pl-3 sticky top-[15vh] md:top-[30vh]">
+                {activeProject.description}
+              </p>
+              <div className="relative z-[999] flex flex-col">
+                <img
+                  className="w-[100vw] md:w-[60vw] shadow-2xl shadow-[#777] absolute right-0 top-0"
+                  src={activeProject.img1}></img>
+                <img
+                  className="w-[30vw] md:w-[30vw] shadow-2xl  absolute right-0 top-[30vh] md:top-[100vh]"
+                  src={activeProject.img2}></img>
+                <img
+                  className="w-[100vw] md:w-[60vw] shadow-2xl absolute right-0 top-[115vh] md:top-[250vh]"
+                  src={activeProject.img3}></img>
+              </div>
+            </>
+          )}
+        </div>
         {ProjectDetails.map((detail, i) => {
           return (
             <motion.div
@@ -86,14 +150,17 @@ const Project = ({ ref, scrollYProgress, isMobile, ProjectDetails }) => {
                           ))}
                         </span>
                       ) : (
-                        <p>No Frontend Technologies Listed</p>
+                        <p>No Backend Technologies Listed</p>
                       )}
                     </span>
                   </span>
                 </span>
               </div>
               <div className="flex gap-3">
-                <button className="bg-[#000] text-[#fff] rounded-full text-[14px] md:text-[18px] font-bold w-3/4 md:w-full p-3 outline-none">
+                <button
+                  type="button"
+                  onClick={() => onProjectClick(detail)}
+                  className="bg-[#000] text-[#fff] rounded-full text-[14px] md:text-[18px] font-bold w-3/4 md:w-full p-3 outline-none">
                   Detail
                 </button>
                 <div
@@ -135,8 +202,12 @@ const ProjectDetails = [
       { tech: "./Icons/express.png" },
     ],
     icon: "./ProjectIcon/holesail--logo.webp",
-    link: "http://holesail.io",
+    link: "https://holesail.io",
     linkColor: "",
+    img1: "./Projects/holesail-03.png",
+    img2: "./Projects/holesail-01.png",
+    img3: "./Projects/holesail-02.png",
+    dataValue: 1,
   },
   {
     deskImg: "./Projects/3siixtin-02.png",
@@ -154,8 +225,12 @@ const ProjectDetails = [
       { tech: "./Icons/wordpress.png" }, // Assuming each tech is an object
     ],
     icon: "./ProjectIcon/holesail--logo.webp",
-    link: "http://3siixtin.com",
+    link: "https://3siixtin.com",
     linkColor: "",
+    img1: "./Projects/3siixtin-03.png",
+    img2: "./Projects/3siixtin-04.png",
+    img3: "./Projects/3siixtin-05.png",
+    dataValue: 2,
   },
   {
     deskImg: "./Projects/sibiro-02.png",
@@ -174,8 +249,12 @@ const ProjectDetails = [
       { tech: "./Icons/nodejs.png" },
     ],
     icon: "./ProjectIcon/sibiro--logo.svg",
-    link: "http://sibiro.ru",
+    link: "https://sibiro.ru",
     linkColor: "",
+    img1: "./Projects/sibiro-03.png",
+    img2: "./Projects/sibiro-04.png",
+    img3: "./Projects/sibiro-05.png",
+    dataValue: 3,
   },
   {
     deskImg: "./Projects/docyard-01.png",
@@ -194,8 +273,12 @@ const ProjectDetails = [
       { tech: "./Icons/nodejs.png" },
     ],
     icon: "./ProjectIcon/docyard--logo.png",
-    link: "http://sibiro.ru",
+    link: "https://docyard.co.in",
     linkColor: "",
+    img1: "./Projects/docyard-03.png",
+    img2: "./Projects/docyard-04.png",
+    img3: "./Projects/docyard-05.png",
+    dataValue: 4,
   },
 ];
 

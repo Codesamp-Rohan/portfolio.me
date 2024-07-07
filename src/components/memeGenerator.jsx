@@ -1,4 +1,9 @@
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import React, { useState } from "react";
+
+gsap.registerPlugin(ScrollTrigger);
+
 export default function MemeGenerator() {
   const [allMemes, setAllMemes] = useState([]);
 
@@ -41,12 +46,23 @@ export default function MemeGenerator() {
     }));
   }
 
+  gsap.to(".generator--div", {
+    scrollTrigger: {
+      trigger: ".generator--div",
+      scrub: true,
+      start: "top center",
+      end: "bottom center",
+      // markers: true,
+    },
+    opacity: 1,
+  });
+
   return (
     <>
       <div
         data-color="#131842"
         className="section flex flex-col pt-[30vh] items-center relative">
-        <h1 className="font-bold text-[#fff] uppercase text-[2rem] ">
+        <h1 className="font-bold text-[#fff] uppercase text-[1rem] md:text-[2rem] ">
           time for some meme
         </h1>
         <form
@@ -78,7 +94,7 @@ export default function MemeGenerator() {
               <img
                 src={memeImage.image}
                 alt="meme"
-                className="md:h-[40vh] rounded-lg shadow-2xl"
+                className="md:h-[50vh] rounded-lg shadow-2xl"
               />
               <h1 className="meme--text bottom">{memeImage.bottomText}</h1>
             </div>
@@ -89,7 +105,7 @@ export default function MemeGenerator() {
         </form>
         <div
           data-value="it is not going to work!!!"
-          className="p-4 bg-[#ffbdbd] md:absolute w-[90vw] md:w-auto mt-[40px] md:mt-auto rounded-2xl left-[100px] top-[50%] md:rotate-[-14deg] ring-1 ring-[red] flex flex-col gap-10">
+          className="p-4 bg-[#ffbdbd] md:absolute w-[90vw] md:w-auto mt-[40px] md:mt-auto z-[100] rounded-2xl left-[100px] top-[50%] md:rotate-[-14deg] ring-1 ring-[red] flex flex-col gap-10">
           <span>
             <h1
               data-value="it is not going to work!!!"
@@ -110,7 +126,22 @@ export default function MemeGenerator() {
             Download
           </button>
         </div>
-        <div className="h-[20vh]"></div>
+        <div className="generator--div opacity-0 w-[200px] mobile--hide p-2 bg-pink-400 md:block absolute left-10 rotate-12 top-[30%] rounded-xl overflow-hidden">
+          <img
+            className="rounded-lg"
+            src="https://miro.medium.com/v2/resize:fit:1400/1*Yb2W5n4-ZyQZ8ggggHGCZA.png"></img>
+        </div>
+        <div className="generator--div opacity-0 w-[240px] mobile--hide p-2 bg-violet-500 md:block absolute right-20 rotate-[-24deg] top-[20%] rounded-xl overflow-hidden">
+          <img
+            className="rounded-lg"
+            src="https://gitpiper.com/assets/memes/programming-meme-ff7166d5-d272-4fce-8e30-cef42a514420.webp"></img>
+        </div>
+        <div className="generator--div opacity-0 w-[240px] mobile--hide p-2 bg-green-300 md:block absolute right-20 rotate-[20deg] bottom-[25%] rounded-xl overflow-hidden">
+          <img
+            className="rounded-lg"
+            src="https://www.codewithfaraz.com/blog_img/designers%20vs%20programmers.jpg"></img>
+        </div>
+        <div className="h-[40vh]"></div>
       </div>
     </>
   );

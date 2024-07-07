@@ -10,30 +10,23 @@ function TechMarquee() {
   };
 
   const frontendskills = [
-    { img: "./Icons/html.png", value: "html." },
-    { img: "./Icons/css.png", value: "html." },
-    { img: "./Icons/js.png", value: "html." },
-    { img: "./Icons/react.png", value: "html." },
-    { img: "./Icons/express.png", value: "html." },
-    { img: "./Icons/mongodb.png", value: "html." },
-    { img: "./Icons/nodejs.png", value: "html." },
-    { img: "./Icons/gsap.png", value: "html." },
-    { img: "./Icons/framer-motion.png", value: "html." },
-    { img: "./Icons/tailwind.png", value: "html." },
-    { img: "./Icons/wordpress.png", value: "html." },
+    { img: "./Icons/html.png", value: "HTML." },
+    { img: "./Icons/css.png", value: "CSS." },
+    { img: "./Icons/js.png", value: "JavaScript." },
+    { img: "./Icons/react.png", value: "React Js." },
+    { img: "./Icons/figma.png", value: "Figma." },
+    { img: "./Icons/gsap.png", value: "GSAP." },
+    { img: "./Icons/framer-motion.png", value: "Framer-motion." },
+    { img: "./Icons/tailwind.png", value: "Tailwind CSS." },
+    { img: "./Icons/wordpress.png", value: "WordPress." },
+    { img: "./Icons/docusaurus.png", value: "Docusaurus." },
   ];
 
   const backendskills = [
-    { img: "./Icons/html.png", value: "html." },
-    { img: "./Icons/css.png", value: "html." },
-    { img: "./Icons/js.png", value: "html." },
-    { img: "./Icons/react.png", value: "html." },
-    { img: "./Icons/express.png", value: "html." },
-    { img: "./Icons/mongodb.png", value: "html." },
-    { img: "./Icons/nodejs.png", value: "html." },
-    { img: "./Icons/gsap.png", value: "html." },
-    { img: "./Icons/tailwind.png", value: "html." },
-    { img: "./Icons/wordpress.png", value: "html." },
+    { img: "./Icons/express.png", value: "Express Js." },
+    { img: "./Icons/mongodb.png", value: "MongoDB." },
+    { img: "./Icons/nodejs.png", value: "Node Js." },
+    { img: "./Icons/wordpress.png", value: "WordPress." },
   ];
 
   return (

@@ -37,11 +37,13 @@ const HomeCard = ({ isVisible, constraintsRef }) => {
                 {card.subTitle}
               </p>
             </span>
-            <button
-              data-value={card.dataValue}
-              className={`p-2 md:py-2 md:px-4 text-[10px] md:text-[16px] font-bold rounded-md md:rounded-full border-[1px] shadow-xl active:shadow-none ${card.deskButtonWidth} ${card.mobileButtonWidth} ${card.borderColor} ${card.buttonBgColor} ${card.mobileButtonWidth} ${card.deskButtonWidth} ${card.btnColor}`}>
-              {card.button}
-            </button>
+            <a target="_blank" href={card.href}>
+              <button
+                data-value={card.dataValue}
+                className={`p-2 md:py-2 md:px-4 text-[10px] md:text-[16px] font-bold rounded-md md:rounded-full border-[1px] shadow-xl active:shadow-none ${card.deskButtonWidth} ${card.mobileButtonWidth} ${card.borderColor} ${card.buttonBgColor} ${card.mobileButtonWidth} ${card.deskButtonWidth} ${card.btnColor}`}>
+                {card.button}
+              </button>
+            </a>
           </motion.span>
         );
       })}
@@ -100,6 +102,7 @@ const cards = [
     deskGap: "md:gap-[3rem]",
     mobGap: "gap-[12px]",
     btnColor: "text-[#fff]",
+    href: "",
   },
   {
     title: "GitHub",
@@ -125,6 +128,7 @@ const cards = [
     deskGap: "md:gap-[9rem]",
     mobGap: "gap-[8rem]",
     btnColor: "text-[#fff]",
+    href: "https://github.com/codesamp-rohan",
   },
   {
     title: "LinkedIn",
@@ -150,6 +154,7 @@ const cards = [
     deskGap: "md:gap-[3rem]",
     mobGap: "gap-[2rem]",
     btnColor: "text-[#fff]",
+    href: "https://www.linkedin.com/in/rohan-chaudhary-399742255/",
   },
   {
     title: "Support",
@@ -175,6 +180,7 @@ const cards = [
     deskGap: "md:gap-[3rem]",
     mobGap: "gap-[2rem]",
     btnColor: "text-[#000]",
+    href: "https://buymeacoffee.com/codesamprohan",
   },
 ];
 

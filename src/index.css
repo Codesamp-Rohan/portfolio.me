@@ -44,6 +44,9 @@
 .cgFont {
   font-family: CG;
 }
+.no-scroll {
+  overflow: hidden;
+}
 
 /* MemeGenerator */
 .form-button {
