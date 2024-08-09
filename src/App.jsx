@@ -19,6 +19,8 @@ import SocialContainer from "./components/socialContainer";
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
+  const [openMenu, setOpenMenu] = useState(false);
+
   const socialDivRef = useRef();
   const socialRef = useRef();
   const constraintsRef = useRef(null);
@@ -94,9 +96,66 @@ function App() {
   return (
     <>
       {!isMobile && <MouseFollower />}
-      <nav className="section--1 flex z-[900] justify-between bg-transparent items-center p-[2rem]">
+      <div
+        onClick={() => setOpenMenu(!openMenu)}
+        className={`fixed w-full h-full bg-[#0000008a] duration-500 z-[999] ${
+          openMenu ? `opacity-1` : `opacity-0 pointer-events-none`
+        }`}></div>
+      <div
+        className={`fixed right-8 w-[30%] rounded-lg flex flex-col justify-between overflow-hidden duration-500 z-[999] px-10 bg-[#eee] ${
+          openMenu ? `top-20 h-[350px]` : `top-0 h-0`
+        }`}>
+        <div className="mt-4">
+          <div className="h-[3.4rem] w-full overflow-hidden relative">
+            <a
+              href="https://github.com/codesamp-rohan"
+              target="_blank"
+              className={`text-[3rem] font-bold duration-500 absolute delay-500 uppercase ${
+                openMenu ? `top-0` : `top-[120%]`
+              }`}>
+              GitHub
+            </a>
+          </div>
+          <div className="h-[3.4rem] w-full overflow-hidden relative">
+            <a
+              href="https://www.linkedin.com/in/rohan-chaudhary-399742255/"
+              target="_blank"
+              className={`text-[3rem] font-bold absolute duration-500 delay-500 uppercase ${
+                openMenu ? `top-0` : `top-[120%]`
+              }`}>
+              LinkedIn
+            </a>
+          </div>
+          <div className="h-[3.4rem] w-full overflow-hidden relative">
+            <a
+              href="https://www.instagram.com/rohan_._chaudhary/"
+              target="_blank"
+              className={`text-[3rem] font-bold absolute duration-500 delay-500 uppercase ${
+                openMenu ? `top-0` : `top-[120%]`
+              }`}>
+              Instagram
+            </a>
+          </div>
+          <div className="h-[3.4rem] w-full overflow-hidden relative">
+            <a
+              href="https://buymeacoffee.com/codesamprohan"
+              target="_blank"
+              className={`text-[3rem] font-bold absolute duration-500 delay-500 uppercase ${
+                openMenu ? `top-0` : `top-[120%]`
+              }`}>
+              Support
+            </a>
+          </div>
+        </div>
+        <button className="bg-[#5a73ff] text-[#fff] font-bold text-[1.6rem] uppercase w-full py-1 rounded-full my-10">
+          Blog-Portfolio
+        </button>
+      </div>
+      <nav className="section--1 flex z-[999] justify-between bg-transparent items-center p-[2rem] relative">
         <p>Portfolio.io</p>
-        <button className="bg-[#eee] px-3.5 py-[4px] border-[0.5px] border-[#bbb] rounded-lg">
+        <button
+          className="bg-[#eee] px-3.5 py-[4px] border-[0.5px] border-[#bbb] rounded-lg"
+          onClick={() => setOpenMenu(!openMenu)}>
           menu
         </button>
       </nav>
@@ -269,19 +328,21 @@ function App() {
         <SocialContainer />
         <div className="flex flex-col items-center justify-center">
           <span className="flex gap-[2rem]">
-            <a>
+            <a href="https://github.com/codesamp-rohan" target="_blank">
               <img className="w-[40px]" src="./github.png" alt="icon"></img>
             </a>
-            <a>
+            <a
+              href="https://www.linkedin.com/in/rohan-chaudhary-399742255/"
+              target="_blank">
               <img
                 className="w-[40px] bg-[#0B66C2] rounded-lg"
                 src="./linkedin.png"
                 alt="icon"></img>
             </a>
-            <a>
+            <a href="mailto:rohanchaudhary.bkbiet2022@gmail.com">
               <img className="w-[40px]" src="./apple.png" alt="icon"></img>
             </a>
-            <a>
+            <a href="https://buymeacoffee.com/codesamprohan" target="_blank">
               <img className="w-[40px]" src="./coffee.png" alt="icon"></img>
             </a>
           </span>

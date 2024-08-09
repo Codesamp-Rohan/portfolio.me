@@ -57,11 +57,13 @@ const SocialContainer = () => {
               </p>
               <p className="text-[12px]">@codesamp-rohan</p>
             </span>
-            <button
+            <a
+              href="https://github.com/codesamp-rohan"
+              target="_blank"
               data-value="GitHub."
-              className="bg-[#02040A] font-extrabold p-2 md:py-2 md:px-4 text-[10px] md:text-[16px] rounded-md shadow-xl text-[#fff] active:shadow-none">
+              className="bg-[#02040A] text-center font-extrabold p-2 md:py-2 md:px-4 text-[10px] md:text-[16px] rounded-md shadow-xl text-[#fff] active:shadow-none">
               Follow
-            </button>
+            </a>
           </span>
           <span
             data-value="GitHub."
@@ -78,11 +80,13 @@ const SocialContainer = () => {
               </p>
               <p className="text-[12px]">@rohan-chaudhary-3997355</p>
             </span>
-            <button
+            <a
+              href="https://www.linkedin.com/in/rohan-chaudhary-399742255/"
+              target="_blank"
               data-value="GitHub."
-              className="bg-[#0B66C2] font-extrabold p-2 md:py-2 md:px-4 text-[10px] md:text-[16px] rounded-md shadow-xl text-[#fff] active:shadow-none">
+              className="bg-[#0B66C2] text-center font-extrabold p-2 md:py-2 md:px-4 text-[10px] md:text-[16px] rounded-md shadow-xl text-[#fff] active:shadow-none">
               Follow
-            </button>
+            </a>
           </span>
           <span
             data-value="GitHub."
@@ -99,11 +103,13 @@ const SocialContainer = () => {
               </p>
               <p className="text-[12px]">@codesamprohan</p>
             </span>
-            <button
+            <a
+              href="https://buymeacoffee.com/codesamprohan"
+              target="_blank"
               data-value="GitHub."
-              className="bg-[#FFDD04] font-extrabold p-2 md:py-2 md:px-4 text-[10px] md:text-[16px] rounded-md shadow-xl text-[#000] active:shadow-none">
+              className="bg-[#FFDD04] text-center font-extrabold p-2 md:py-2 md:px-4 text-[10px] md:text-[16px] rounded-md shadow-xl text-[#000] active:shadow-none">
               Support
-            </button>
+            </a>
           </span>
         </div>
       </div>

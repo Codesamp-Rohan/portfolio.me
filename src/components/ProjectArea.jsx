@@ -51,7 +51,7 @@ const Project = ({
       <h1 className="section text-white font-bold text-[18px] w-full text-center pb-[30px] relative z-[100]">
         Projects
       </h1>
-      <div className="flex flex-col items-center w-full gap-[5rem] bg-transparent relative">
+      <div className="flex flex-col items-center md:w-full gap-[5rem] bg-transparent relative">
         <div
           className={`w-[100vw] overflow-y-scroll duration-500 ease-out p-10 bg-[#eee] z-[999] fixed top-0 ${
             activeProject
@@ -69,15 +69,15 @@ const Project = ({
               <p className="w-[100%] md:w-[65%] md:pl-3 sticky top-[15vh] md:top-[30vh]">
                 {activeProject.description}
               </p>
-              <div className="relative z-[999] flex flex-col">
+              <div className="relative z-[999] flex flex-col mt-[40%] gap-10 md:mt-auto md:gap-0">
                 <img
-                  className="w-[100vw] md:w-[60vw] shadow-2xl shadow-[#777] absolute right-0 top-0"
+                  className="w-[100vw] md:w-[60vw] shadow-2xl shadow-[#777] relative md:absolute md:right-0 md:top-0"
                   src={activeProject.img1}></img>
                 <img
-                  className="w-[30vw] md:w-[30vw] shadow-2xl  absolute right-0 top-[30vh] md:top-[100vh]"
+                  className="w-[90vw] md:w-[30vw] shadow-2xl  relative md:absolute md:right-0 md:top-[80vh]"
                   src={activeProject.img2}></img>
                 <img
-                  className="w-[100vw] md:w-[60vw] shadow-2xl absolute right-0 top-[115vh] md:top-[250vh]"
+                  className="w-[100vw] md:w-[60vw] shadow-2xl relative md:absolute md:right-0 md:top-[200vh]"
                   src={activeProject.img3}></img>
               </div>
             </>
