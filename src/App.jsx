@@ -102,7 +102,7 @@ function App() {
           openMenu ? `opacity-1` : `opacity-0 pointer-events-none`
         }`}></div>
       <div
-        className={`fixed right-8 w-[30%] rounded-lg flex flex-col justify-between overflow-hidden duration-500 z-[999] px-10 bg-[#eee] ${
+        className={`fixed right-8 w-[300px] sm:w-[500px] rounded-lg flex flex-col justify-between overflow-hidden duration-500 z-[999] px-10 bg-[#eee] ${
           openMenu ? `top-20 h-[350px]` : `top-0 h-0`
         }`}>
         <div className="mt-4">
@@ -110,7 +110,7 @@ function App() {
             <a
               href="https://github.com/codesamp-rohan"
               target="_blank"
-              className={`text-[3rem] font-bold duration-500 absolute delay-500 uppercase ${
+              className={`text-[2rem] md:text-[3rem] font-bold duration-500 absolute delay-500 uppercase ${
                 openMenu ? `top-0` : `top-[120%]`
               }`}>
               GitHub
@@ -120,7 +120,7 @@ function App() {
             <a
               href="https://www.linkedin.com/in/rohan-chaudhary-399742255/"
               target="_blank"
-              className={`text-[3rem] font-bold absolute duration-500 delay-500 uppercase ${
+              className={`text-[2rem] md:text-[3rem] font-bold absolute duration-500 delay-500 uppercase ${
                 openMenu ? `top-0` : `top-[120%]`
               }`}>
               LinkedIn
@@ -130,7 +130,7 @@ function App() {
             <a
               href="https://www.instagram.com/rohan_._chaudhary/"
               target="_blank"
-              className={`text-[3rem] font-bold absolute duration-500 delay-500 uppercase ${
+              className={`text-[2rem] md:text-[3rem] font-bold absolute duration-500 delay-500 uppercase ${
                 openMenu ? `top-0` : `top-[120%]`
               }`}>
               Instagram
@@ -140,14 +140,14 @@ function App() {
             <a
               href="https://buymeacoffee.com/codesamprohan"
               target="_blank"
-              className={`text-[3rem] font-bold absolute duration-500 delay-500 uppercase ${
+              className={`text-[2rem] md:text-[3rem] font-bold absolute duration-500 delay-500 uppercase ${
                 openMenu ? `top-0` : `top-[120%]`
               }`}>
               Support
             </a>
           </div>
         </div>
-        <button className="bg-[#5a73ff] text-[#fff] font-bold text-[1.6rem] uppercase w-full py-1 rounded-full my-10">
+        <button className="bg-[#5a73ff] text-[#fff] font-bold text-[1.2rem] md:text-[1.6rem] uppercase w-full py-1 rounded-full my-10">
           Blog-Portfolio
         </button>
       </div>
